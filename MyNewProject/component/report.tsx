@@ -15,6 +15,7 @@ import { useRoute } from '@react-navigation/native';
 import { View, Text, ActivityIndicator, StyleSheet, Dimensions } from 'react-native';
 import { GET_REPORT } from '../request/GraphqlRequest';
 import ItemDetails from './detail';
+import Average from './average';
 echarts.use([
   TitleComponent,
   TooltipComponent,
@@ -84,6 +85,7 @@ export default function ReportPage() {
         <ItemDetails itemId={deviceId} />
         <Text style={styles.header}>Temperature Report</Text>
         <ChartComponent option={option} />
+        <Average record={temperatures}/>
       </View>
     );
   }
