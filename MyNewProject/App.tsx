@@ -26,7 +26,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="ItemList">
           <Stack.Screen name="ItemList" component={ItemList} options={{ title: 'Items' }} />
-          <Stack.Screen name="ReportPage" component={ReportPage} options={{ title: 'Report' }} />
+          <Stack.Screen name="ReportPage" component={ReportPage} options={{ title: 'Details' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </ApolloProvider>
