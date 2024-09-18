@@ -1,5 +1,17 @@
 # TestTechnique
 
-Notes:\n
-If you're using Expo Go, make sure your mobile device and development machine are on the same network.\n
-Ensure to configure the correct environment variables or API base URLs if the frontend and backend are hosted separately.
+##Notes:
+- If you're using Expo Go, make sure your mobile device and development machine are on the same network.
+- Ensure to configure the correct environment variables or API base URLs if the frontend and backend are hosted separately.
+
+## Deployment
+
+start the server 
+```bash
+  npm start
+```
+
+start the front 
+```bash
+  npx expo
+```
