@@ -1,4 +1,5 @@
 import { ObjectType, Field, ID, Int } from '@nestjs/graphql';
+import { DateTimeResolver } from 'graphql-scalars';
 
 @ObjectType()
 export class Report {
@@ -10,4 +11,7 @@ export class Report {
 
   @Field()
   deviceId: string;
+
+  @Field(() => DateTimeResolver)
+  date: Date;
 }

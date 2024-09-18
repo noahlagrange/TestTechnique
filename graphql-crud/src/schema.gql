@@ -12,14 +12,22 @@ type Report {
   id: ID!
   temperature: Int!
   deviceId: String!
+  date: DateTime!
 }
+
+"""
+A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the `date-time` format outlined in section 5.6 of the RFC 3339 profile of the ISO 8601 standard for representation of dates and times using the Gregorian calendar.
+"""
+scalar DateTime
 
 type Query {
   items: [Item!]!
   item(id: String!): Item
-  findAllbyDeviceId(deviceid: String!): [Report!]!
-  getReports: [Report!]!
-  getReport(id: String!): Report
+  latestReportsByDeviceIds(deviceIds: [String!]!): [Report!]!
+  reports: [Report!]!
+  report(id: String!): Report
+  FindAllbyDeviceId(deviceId: String!): [Report!]!
+  latestReportByDeviceId(deviceId: String!): Report
 }
 
 type Mutation {
@@ -27,8 +35,8 @@ type Mutation {
   updateItem(updateItemInput: UpdateItemInput!): Item!
   removeItem(id: String!): Boolean!
   createReport(createReportInput: CreateReportInput!): Report!
-  updateReport(updateReportInput: UpdateReportInput!): Report!
-  deleteReport(id: String!): Boolean!
+  updateReport(updateReportInput: UpdateReportInput!): Report
+  removeReport(id: String!): Boolean!
 }
 
 input CreateItemInput {
@@ -45,10 +53,12 @@ input UpdateItemInput {
 input CreateReportInput {
   temperature: Int!
   deviceId: String!
+  date: DateTime!
 }
 
 input UpdateReportInput {
   id: ID!
   temperature: Int
   deviceId: String
+  date: DateTime
 }
